@@ -159,6 +159,12 @@ return {
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
+			bashls = {},
+			cssls = {},
+			jsonls = {},
+			marksman = {},
+			html = {},
+			jdtls = {},
 			pyright = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -199,8 +205,12 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
+			"java-debug-adapter",
+			"java-test",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
+		vim.api.nvim_command("MasonToolsInstall")
 
 		require("mason-lspconfig").setup({
 			handlers = {
@@ -210,7 +220,9 @@ return {
 					-- by the server configuration above. Useful when disabling
 					-- certain features of an LSP (for example, turning off formatting for tsserver)
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					require("lspconfig")[server_name].setup(server)
+					if server_name ~= "jdtls" then
+						require("lspconfig")[server_name].setup(server)
+					end
 				end,
 			},
 		})

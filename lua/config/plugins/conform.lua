@@ -28,9 +28,16 @@ return {
 		end,
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "autopep8" },
-			-- python = { "black" },
+			-- python = { "autopep8" },
+			python = { "black" },
+			css = { "prettier" },
 			javascript = { "prettier" },
+			typescript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescriptreact = { "prettier" },
+			json = { "prettier" },
+			scss = { "prettier" },
+			less = { "prettier" },
 		},
 	},
 }

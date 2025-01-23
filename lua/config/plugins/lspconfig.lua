@@ -174,9 +174,25 @@ return {
 			--
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
-      ts_ls = {},
-			--
-
+			ts_ls = {
+				{
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+								languages = { "javascript", "typescript", "vue" },
+							},
+						},
+					},
+					filetypes = {
+						"javascript",
+						"typescript",
+						"vue",
+					},
+				},
+			},
+			tailwindcss = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},

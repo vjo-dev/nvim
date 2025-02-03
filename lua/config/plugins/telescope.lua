@@ -55,11 +55,20 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			-- You can put your default mappings / updates / etc. in here
 			--  All the info you're looking for is in `:help telescope.setup()`
 			--
-			-- defaults = {
-			--   mappings = {
-			--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-			--   },
-			-- },
+			defaults = {
+				mappings = {
+					i = { -- Insert mode mappings
+						["<C-j>"] = "move_selection_next", -- Example: Ctrl+j
+						["<C-k>"] = "move_selection_previous", -- Example: Ctrl+k
+						["<C-i>"] = "select_default", -- Example: Enter
+					},
+					n = { -- Normal mode mappings
+						["<j>"] = "move_selection_next", -- Example: Ctrl+j
+						["<k>"] = "move_selection_previous", -- Example: Ctrl+k
+						["<i>"] = "select_default", -- Example: Enter
+					},
+				},
+			},
 			-- pickers = {}
 			extensions = {
 				["ui-select"] = {

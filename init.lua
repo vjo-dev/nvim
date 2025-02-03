@@ -1,6 +1,9 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+
+-- NOTE: minimal elegant example -- > https://github.com/JazzyGrim/dotfiles/tree/master/.config/nvim/lua/config
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
